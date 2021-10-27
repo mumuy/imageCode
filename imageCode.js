@@ -60,30 +60,35 @@
 		ca[_(0x3eb8d601)] = sz;
 		var ct = ca[__(0x0)](_(0x55));
 		var idt = ct[__(0x2)](0, 0, ca[_(0x3413675)], ca[_(0x3eb8d601)]);
-		for(var i=0;i<idt[_(0x977fe)][_(0x4d26f6e5)];i+=4){
+		var id = idt[_(0x977fe)];
+		for(var i=0;i<id[_(0x4d26f6e5)];i+=4){
 			var idx = 3*~~(i/4);
-			idt[_(0x977fe)][i] = cl[idx]||0;
-			idt[_(0x977fe)][i+1] = cl[idx+1]||0;
-			idt[_(0x977fe)][i+2] = cl[idx+2]||0;
-			idt[_(0x977fe)][i+3] = 0xff;
+			id[i] = cl[idx]||0;
+			id[i+1] = cl[idx+1]||0;
+			id[i+2] = cl[idx+2]||0;
+			id[i+3] = 0xff;
 		}
+		id = id[_(0x70e1)](function(v,i){return (v+(i%4==3?i+sz:0))%256;});
 		ct[__(0x1)](idt,0, 0);
 		return ca[__(0x4)](_(0x1dd306e)+'/'+_(0x81dc));
 	};
 	a[_(0x790d1f902)] = function(s){
 		dl(s,function(a){
 			var ca = $(2)[__(0x7)](_(0x2c50f834));
+			var sz = a[_(0x3413675)];
 			ca[_(0x3413675)] = a[_(0x3413675)];
 			ca[_(0x3eb8d601)] = a[_(0x3eb8d601)];
 			var ct = ca[__(0x0)](_(0x55));
 			ct[__(0x3)](a, 0, 0, ca[_(0x3413675)], ca[_(0x3eb8d601)]);
 			var idt = ct[__(0x2)](0, 0, ca[_(0x3413675)], ca[_(0x3eb8d601)]);
+			var id = idt[_(0x977fe)];
 			var cl = [];
-			for(var i=0;i<idt[_(0x977fe)][_(0x4d26f6e5)];i+=4){
+			id = id[_(0x70e1)](function(v,i){return (v-(i%4==3?i+sz:0))%256;});
+			for(var i=0;i<id[_(0x4d26f6e5)];i+=4){
 				var idx = 3*~~(i/4);
-				cl[idx] = idt[_(0x977fe)][i];
-				cl[idx+1] = idt[_(0x977fe)][i+1];
-				cl[idx+2] = idt[_(0x977fe)][i+2];
+				cl[idx] = id[i];
+				cl[idx+1] = id[i+1];
+				cl[idx+2] = id[i+2];
 			}
 			var o = {c:[]};
 			o[__(0x8)] = function(){
