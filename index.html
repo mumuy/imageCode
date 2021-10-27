@@ -16,6 +16,10 @@
 		h1,h3{
 			margin:  0;
 		}
+		a{
+			text-decoration: none;
+			color: #333;
+		}
 		.container{
 			width: 800px;
 			margin:  0 auto;
@@ -74,6 +78,7 @@
 <body>
 	<div class="container">
 		<h1>imageCode脚本加密</h1>
+		<p style="text-align:right;"><a href="/">返回首页</a></p>
 		<p><input type="text" name="host" placeholder="输入代码限制运行的域"/></p>
 		<p><textarea name="code" placeholder="输入Javascript代码">console.log("Hello World!");</textarea></p>
 		<p style="text-align:right;"><button id="save">保存加密图片</button></p>
