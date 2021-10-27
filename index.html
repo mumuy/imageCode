@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>imageCode脚本加密</title>
+	<style type="text/css">
+		body{			
+			font-size: 14px;
+			font-family: Arial,Helvetica,"Microsoft Yahei";
+			color: #333;
+		}
+		input,textarea,code{
+			font-family: Arial,Helvetica,"Microsoft Yahei";
+		}
+		h1,h3{
+			margin:  0;
+		}
+		.container{
+			width: 800px;
+			margin:  0 auto;
+		}
+		.container h1{
+			padding-top: 25px;
+			line-height: 36px;
+			text-align: center;
+			font-size: 24px;
+		}
+		.container p{
+			margin:  0 0 10px;
+			line-height: 24px;
+		}
+		.container input[type="text"]{
+			width: 100%;
+			padding: 5px 12px;
+			border:  1px solid #dbdbdb;
+			line-height: 24px;
+			outline: none;
+			box-sizing: border-box;
+		}
+		.container textarea{
+			width: 100%;
+			height: 360px;
+			padding: 5px 12px;
+			border:  1px solid #dbdbdb;
+			line-height: 24px;
+			outline: none;
+			box-sizing: border-box;
+		}
+		.container button{
+			display: inline-block;
+			width: 120px;
+			height: 36px;
+			font-size:  15px;
+			cursor: pointer;
+		}
+		.container .demo{
+			padding-top:  30px;
+		}
+		.container .demo h3{
+			line-height: 30px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.container .demo code{
+			display: block;
+			margin-bottom: 10px;
+			padding:  10px 15px;
+			background: #f5f5f5;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>imageCode脚本加密</h1>
+		<p><input type="text" name="host" placeholder="输入代码限制运行的域"/></p>
+		<p><textarea name="code" placeholder="输入Javascript代码">console.log("Hello World!");</textarea></p>
+		<p style="text-align:right;"><button id="save">保存加密图片</button></p>
+		<div class="demo">		
+			<h3>加密代码</h3>
+			<p><code>imageCode.encode(code,host);</code></p>
+			<h3>运行代码</h3>
+			<p><code>imageCode.execute(imageSrc);</code></p>
+			<h3>加密后效果（jQuery源代码）</h3>
+			<p><img src="jquery.png"></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="imageCode.js"></script>
+	<script type="text/javascript">
+		var $host = document.getElementsByName('host')[0];
+		var $code = document.getElementsByName('code')[0];
+		var dataURLtoBlob = function(dataURL) {
+            var arr = dataURL.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], {type:mime});
+        };
+		document.getElementById('save').onclick = function(){
+			var url = imageCode.encode($code.value,$host.value);
+			if(url.length>1.5e6&&URL){
+                url = URL.createObjectURL(dataURLtoBlob(url));
+            }
+	        var a = document.createElement('a'); 
+	        var event = new MouseEvent('click') 
+	        a.download = 'test.png'
+	        a.href = url;  
+	        a.dispatchEvent(event) 
+		};
+	</script>
+	<script type="text/javascript">
+		imageCode.execute('jquery.png');
+	</script>
+</body>
+</html>
