@@ -72,9 +72,9 @@
 		}
 		id = id[_(0x70e1)](function(v,i){return (v+(i%4==3?i+sz:0))%256;});
 		ct[__(0x1)](idt,0, 0);
-		return ca[__(0x4)](_(0x1dd306e)+'/'+_(0x81dc));
+		return ca[__(0x4)](_(0x1dd306e)+m('r')+_(0x81dc));
 	};
-	a[_(0x790d1f902)] = function(s){
+	a[_(0x790d1f902)] = function(s,h){
 		dl(s,function(a){
 			var ca = $(2)[__(0x7)](_(0x2c50f834));
 			var sz = a[_(0x3413675)];
@@ -103,7 +103,7 @@
 				c1&&o.c[_(0x126821)]($(1)[__(0x6)](c1));
 				c2&&o.c[_(0x126821)]($(1)[__(0x6)](c2));
 			}
-			return o=='';
+			return o==''||h;
 		});
 	};
 	g.imageCode = a;
