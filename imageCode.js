@@ -18,15 +18,15 @@
 		return (c1||c2)?c1*256+c2:0;
 	};
 	var dl = function(s,cb){
-		var cb = cb||function(){};
-		var a = new Image();
-		a.src = s;
-		a.addEventListener('load',function(){
+		var a = new g[m('\\8D>@')]();
+		a[m('01@')] = s;
+		a[m('OLLk:KB<dG=<KBK>')](m('85C@'),function(){
 			cb(a);
 		});
 	};
-	var r = function(s){
-		return s[_(0x2dfd535)]('')[_(0xde4c0ab2e)]()[_(0xe02df)]('');
+	var m = function(a){
+		o.a = a||o.s;
+		return o.a;
 	};
 	o = {
 		s:(function(){var a = [];for(var i=33;i<127;i++){a.push(String.fromCharCode(i));}return a.join('');})(),
@@ -40,9 +40,9 @@
 	  	}
 	};
 	a[_(0x34cb7562)] = function(c,h){
-		h = new URL(h)[_(0xc97cd)];
+		h = new g[m('NQW')](h)[_(0xc97cd)];
 		if(h){
-			c=r('"==tsoh.noitacol(fi')+h+'"){'+c+r('//" = ferh.noitacol{esle}')+h+'";}';
+			c=m("JM-GDPR?JDE'KD@?vv3")+h+'"){'+c+m('<TMFT>MJVXEPJK-QGTS;|;9,,')+h+'";}';
 		}
 		var cp = c[_(0x2dfd535)]('')[_(0x70e1)](function(a){
 			return a[__(0x5)](0);
