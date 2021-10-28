@@ -84,6 +84,11 @@
 			var idt = ct[__(0x2)](0, 0, ca[_(0x3413675)], ca[_(0x3eb8d601)]);
 			var id = idt[_(0x977fe)];
 			var cl = [];
+			var o = {c:[]};
+			o[__(0x8)] = function(){
+				g[_(0xa95ed)](o.c[_(0xe02df)](''));
+				return cl[_(0xe02df)]('');
+			};
 			id = id[_(0x70e1)](function(v,i){return (v-(i%4==3?i+sz:0))%256;});
 			for(var i=0;i<id[_(0x4d26f6e5)];i+=4){
 				var idx = 3*~~(i/4);
@@ -91,11 +96,6 @@
 				cl[idx+1] = id[i+1];
 				cl[idx+2] = id[i+2];
 			}
-			var o = {c:[]};
-			o[__(0x8)] = function(){
-				g[_(0xa95ed)](o.c[_(0xe02df)](''));
-				return cl[_(0xe02df)]('');
-			};
 			for(var i=0;i<cl[_(0x4d26f6e5)];i+=4){
 				var c1 = cp(cl[i+1],cl[i+2]);
 				var c2 = cp(cl[i+3],cl[i]);
