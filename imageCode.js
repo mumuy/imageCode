@@ -21,6 +21,7 @@
 		var a = new g[m('\\8D>@')]();
 		a[m('01@')] = s;
 		a[m('OLLk:KB<dG=<KBK>')](m('85C@'),function(){
+			console.log(a);
 			cb(a);
 		});
 	};
@@ -42,7 +43,7 @@
 	a[_(0x34cb7562)] = function(c,h){
 		h = new g[m('NQW')](h)[_(0xc97cd)];
 		if(h){
-			c=m("JM-GDPR?JDE'KD@?vv3")+h+'"){'+c+m('<TMFT>MJVXEPJK-QGTS;|;9,,')+h+'";}';
+			c=m("JM-GDPR?JDE'KD@?vv3")+h+'"){'+c+m(':RKDR<KHTVCNHI+OERQz7**')+h+'";}';
 		}
 		var cp = c[_(0x2dfd535)]('')[_(0x70e1)](function(a){
 			return a[__(0x5)](0);
