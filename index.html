@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>imageCode脚本加密</title>
 	<style type="text/css">
-		body{			
+		body{
 			font-size: 14px;
 			font-family: Arial,Helvetica,"Microsoft Yahei";
 			color: #333;
@@ -20,53 +20,129 @@
 			text-decoration: none;
 			color: #333;
 		}
-		.container{
-			width: 800px;
-			margin:  0 auto;
+		.inner{
+			max-width: 800px;
+			margin: 0 auto;
 		}
-		.container h1{
-			padding-top: 25px;
+
+		.mod-head .bd{
+		    height: 36px;
+		    padding: 10px 0;
+		    text-align: right;
+		}
+		.mod-head .btn{
+		    position: relative;
+		    display: inline-block;
+		    min-width: 56px;
+		    height: 34px;
+		    padding: 0 12px;
+		    background: rgba(255,255,255,0.3);
+		    border: 1px solid rgba(0,0,0,0.05);
+		    border-radius: 6px;
+		    line-height: 34px;
+		    text-decoration: none;
+		    text-align: center;
+		    font-size: 14px;
+		    color: #333;
+		    overflow: hidden;
+		    transition: color .2s,opacity .2s;
+		    font-family: Tahoma,Arial, Helvetica,"Microsoft YaHei";
+		    outline: none;
+		    -webkit-appearance: none;
+		}
+		.mod-head .btn:after {
+		    content: " ";
+		    position: absolute;
+		    width: 100%;
+		    height: 100%;
+		    background: #000;
+		    left: 0;
+		    top: 0;
+		    opacity: 0;
+		    transition: opacity .2s;
+		    border-radius: 6px;
+		    overflow: hidden;
+		    pointer-events: none;
+		}
+		.mod-head .btn span,.mod-head .btn svg{
+		    vertical-align: middle;
+		}
+		.mod-head .btn svg,.mod-head .btn svg+span{
+		    position: relative;
+		    top: -1px;
+		}
+		.mod-head .btn:hover {
+		    color: #000;
+		    opacity: 1;
+		}
+		.mod-head .btn:hover:after {
+		    opacity: .02;
+		}
+
+		.mod-panel{
+			margin-bottom: 50px;
+		}
+		.mod-panel .hd{
+			padding: 10px 0;
 			line-height: 36px;
 			text-align: center;
+		}
+		.mod-panel h1{
 			font-size: 24px;
 		}
-		.container p{
-			margin:  0 0 10px;
-			line-height: 24px;
+		.mod-panel p{
+			margin: 0 0 12px;
 		}
-		.container input[type="text"]{
+		.mod-panel a.link{
+			margin: 0 8px;
+			color: #2095f2;
+		}
+		.mod-panel input[type="text"]{
 			width: 100%;
 			padding: 5px 12px;
 			border:  1px solid #dbdbdb;
 			line-height: 24px;
 			outline: none;
 			box-sizing: border-box;
+			border-radius: 5px;
 		}
-		.container textarea{
+		.mod-panel textarea{
+			display: block;
 			width: 100%;
-			height: 360px;
+			height: 150px;
 			padding: 5px 12px;
 			border:  1px solid #dbdbdb;
 			line-height: 24px;
 			outline: none;
 			box-sizing: border-box;
+			border-radius: 5px;
 		}
-		.container button{
+		.mod-panel button{
 			display: inline-block;
 			width: 120px;
 			height: 36px;
-			font-size:  15px;
+			border: medium none;
+			background: #2095f2;
+			font-weight: bold;
+			font-size:  14px;
+			color: #fff;
 			cursor: pointer;
+			border-radius: 5px;
 		}
-		.container .demo{
-			padding-top:  30px;
+		.mod-panel .code{
+			padding-top:  25px;
 		}
-		.container .demo h3{
+		.mod-panel .code h3{
 			line-height: 30px;
 			font-size: 16px;
 			font-weight: bold;
 		}
-		.container .demo code{
+		.mod-panel .code h3 span.tip{
+			font-weight: normal;
+			font-size: 13px;
+			color: #999;
+		}
+		.mod-panel .code code{
 			display: block;
 			margin-bottom: 10px;
 			padding:  10px 15px;
@@ -77,20 +153,37 @@
 </head>
 <body>
 	<div class="container">
-		<h1>imageCode脚本加密</h1>
-		<p style="text-align:right;"><a href="/">返回首页</a></p>
-		<p><input type="text" name="host" placeholder="输入代码限制运行的域"/></p>
-		<p><textarea name="code" placeholder="输入Javascript代码">console.log("Hello World!");</textarea></p>
-		<p style="text-align:right;"><button id="save">保存加密图片</button></p>
-		<div class="demo">
-			<h3>引入脚本</h3>
-			<p><code>&lt;script type="text/javascript" src="https://passer-by.com/imageCode/imageCode.js"&gt;&lt;/script&gt;</code></p>
-			<h3>加密代码</h3>
-			<p><code>imageCode.encode(code,host);</code></p>
-			<h3>运行代码</h3>
-			<p><code>imageCode.execute(imageSrc);</code></p>
-			<h3>加密后效果（jQuery源代码）</h3>
-			<p><img src="jquery.png"></p>
+		<div class="inner">
+			<div class="mod-head">
+				<div class="bd">
+					<a class="btn" href="https://github.com/mumuy/imageCode/" rel="nofollow" target="_blank" title="Github">
+						<svg aria-hidden="true" class="octicon" height="20" title="GitHub " version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+						<span>Github</span>
+					</a>
+					<a class="btn" href="/">个人网站</a>
+				</div>
+			</div>
+			<div class="mod-panel">
+				<div class="hd">
+					<h1>imageCode脚本加密</h1>
+					<a class="link" href="/hiddenCode/" target="_blank">hiddenCode脚本加密</a>
+				</div>
+				<div class="bd">
+					<p><input type="text" name="host" placeholder="输入代码限制运行的域，如 passer-by.com"/></p>
+					<p><textarea name="code" placeholder="输入Javascript代码">console.log("Hello World!");</textarea></p>
+					<p style="text-align:right;"><button id="save">保存加密图片</button></p>
+					<div class="code">
+						<h3>引入脚本</h3>
+						<p><code>&lt;script type="text/javascript" src="https://passer-by.com/imageCode/imageCode.js"&gt;&lt;/script&gt;</code></p>
+						<h3>加密代码</h3>
+						<p><code>imageCode.encode(code,host);</code></p>
+						<h3>运行代码</h3>
+						<p><code>imageCode.execute(imageSrc);</code></p>
+						<h3>加密后效果（jQuery源代码）</h3>
+						<p><img src="jquery.png"></p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="imageCode.js"></script>
@@ -110,11 +203,11 @@
 			if(url.length>1.5e6&&URL){
                 url = URL.createObjectURL(dataURLtoBlob(url));
             }
-	        var a = document.createElement('a'); 
-	        var event = new MouseEvent('click') 
+	        var a = document.createElement('a');
+	        var event = new MouseEvent('click')
 	        a.download = 'test.png'
-	        a.href = url;  
-	        a.dispatchEvent(event) 
+	        a.href = url;
+	        a.dispatchEvent(event)
 		};
 	</script>
 	<script type="text/javascript">
@@ -125,7 +218,7 @@
 	    (function() {
 	      var hm = document.createElement("script");
 	      hm.src = "https://hm.baidu.com/hm.js?b86879c9cc57dd112fe1f7dd75206b82";
-	      var s = document.getElementsByTagName("script")[0]; 
+	      var s = document.getElementsByTagName("script")[0];
 	      s.parentNode.insertBefore(hm, s);
 	    })();
     </script>
